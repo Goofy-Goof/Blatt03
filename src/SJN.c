@@ -7,13 +7,13 @@
 
 Queue* all_tasks;
 
-def_task* task_constructor(int id, int length){
+def_task* task_constructor_SJN(int id, int length){
     def_task* task = malloc(sizeof(task));
     task->id = id;
     task->length = length;
     return task;
 }
-int comparator(const def_task *a, const def_task *b){
+int comparator_SJN(const def_task *a, const def_task *b){
     int val1 = a->length;
     int val2 = b->length;
     /*
@@ -25,7 +25,7 @@ int comparator(const def_task *a, const def_task *b){
 int init_SJN()
 {
     // TODO
-    all_tasks = queue_new(comparator);
+    all_tasks = queue_new(comparator_SJN);
     return 0;
 }
 void free_SJN()
@@ -37,7 +37,7 @@ void free_SJN()
 void arrive_SJN(int id, int length)
 {
     // TODO
-    def_task *new_task = task_constructor(id, length);
+    def_task *new_task = task_constructor_SJN(id, length);
     queue_offer(all_tasks, new_task);
 }
 

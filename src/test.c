@@ -99,5 +99,55 @@ void test_SJN(){
         free_SJN();
     }else{
         perror("Failed to initialize SJN!\n");
+        exit(1);
     }
 }
+    
+    void test_LCFS_PR(){
+        if (init_LCFS_PR() == 0) {
+            arrive_LCFS_PR(1, 4);
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            arrive_LCFS_PR(2, 2);
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            arrive_LCFS_PR(3, 3);
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            arrive_LCFS_PR(4, 1);
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            arrive_LCFS_PR(5, 2);
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+            tick_LCFS_PR();
+            print_job();
+        }else{
+            perror("Failed to initialize LCFS_PR\n");
+        }
+    }
+

@@ -31,7 +31,9 @@ int init_SJN()
 void free_SJN()
 {
     // TODO
+    if(queue_size(all_tasks) != 0){
     queue_free(all_tasks);
+    }
 }
 
 void arrive_SJN(int id, int length)

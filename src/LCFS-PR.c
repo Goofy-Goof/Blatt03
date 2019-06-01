@@ -31,7 +31,9 @@ int init_LCFS_PR()
 void free_LCFS_PR()
 {
     // TODO
-    queue_free(all_tasks);
+    if(queue_size(all_tasks) != 0){
+        queue_free(all_tasks);
+    }
 }
 
 void arrive_LCFS_PR(int id, int length)

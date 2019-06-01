@@ -32,7 +32,10 @@ int init_SRTN()
 void free_SRTN()
 {
     // TODO
-    queue_free(all_tasks);
+    if (queue_size(all_tasks) != 0) {
+        queue_free(all_tasks);
+    }
+    
 }
 
 void arrive_SRTN(int id, int length)

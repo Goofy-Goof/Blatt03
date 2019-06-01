@@ -16,7 +16,7 @@ int main(int argc, char** argv)
     test_SJN();
     test_LCFS_PR();
     test_SRTN();
-    
+    test_RR(2);
     
 	return 0;
 }

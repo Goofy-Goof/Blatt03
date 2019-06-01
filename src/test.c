@@ -160,6 +160,7 @@ void test_SJN(){
             free_LCFS_PR();
         }else{
             perror("Failed to initialize LCFS_PR\n");
+            exit(1);
         }
     }
 void test_SRTN(){
@@ -218,9 +219,65 @@ void test_SRTN(){
         print_job();
         tick_SRTN();
         print_job();
+        free_SRTN();
         
     }else{
         perror("Failed to initialize SRTN\n");
+        exit(1);
     }
+}
+void test_RR(int time_step){
+    if (init_RR(time_step) == 0) {
+        printf("RR, time step : %d\n", time_step);
+        printf("Task 1 startet um 0, dauert 5\n");
+        printf("Task 2 startet um 2, dauert 2\n");
+        printf("Task 3 startet um 5, dauert 7\n");
+        printf("Task 4 startet um 7, dauert 1\n");
+        printf("Task 5 startet um 10, dauert 2\n");
+        arrive_RR(1, 5);
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        arrive_RR(2, 2);
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        arrive_RR(3, 7);
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        arrive_RR(4, 1);
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        arrive_RR(5, 2);
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        tick_RR();
+        print_job();
+        free_RR();
+    } else {
+        perror("Failed to initialize RR\n");
+        exit(1);
+    }
+    
 }
 

@@ -6,7 +6,7 @@ IDIR    =   ./../include/
 ODIR    =   ./../obj/
 DEP    =   ./../dep/
 
-LDFLAGS = -lm
+LDFLAGS = -lm 
 CFLAGS  =   -I$(IDIR) -Wall -g
 
 %.o: %.c

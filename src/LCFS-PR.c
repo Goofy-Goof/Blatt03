@@ -34,6 +34,7 @@ void free_LCFS_PR()
     if(queue_size(all_tasks) != 0){
         queue_free(all_tasks);
     }
+    switch_task(NULL);
 }
 
 void arrive_LCFS_PR(int id, int length)

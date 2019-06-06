@@ -30,6 +30,7 @@ void free_RR()
     if(queue_size(all_tasks) != 0){
     queue_free(all_tasks);
     }
+    switch_task(NULL);
 }
 
 void arrive_RR(int id, int length)
@@ -63,6 +64,7 @@ def_task *tick_RR()
                 return running_task;
             }
         }else{
+            //time out
             if (time_on_running_task == c_time_step) {
                 running_task->length = running_task->length - time_on_running_task;
                 time_on_running_task = 0;

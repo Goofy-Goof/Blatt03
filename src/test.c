@@ -278,6 +278,65 @@ void test_RR(int time_step){
         perror("Failed to initialize RR\n");
         exit(1);
     }
-    
 }
+    void test_MLF(int time_step, int num_queues){
+        if (init_MLF(time_step, num_queues) == 0) {
+            printf("MLF, time step : %d, number of queues : %d\n", time_step, num_queues);
+            printf("Task 1 startet um 0, dauert 5\n");
+            printf("Task 2 startet um 2, dauert 2\n");
+            printf("Task 3 startet um 5, dauert 7\n");
+            printf("Task 4 startet um 7, dauert 1\n");
+            printf("Task 5 startet um 10, dauert 2\n");
+            arrive_MLF(1, 5);
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            arrive_MLF(2, 2);
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            arrive_MLF(3, 7);
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            arrive_MLF(4, 1);
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            arrive_MLF(5, 2);
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            tick_MLF();
+            print_job();
+            free_MLF();
+        }else{
+            perror("Failed to initialize MLF\n");
+            exit(1);
+        }
+    }
+
 

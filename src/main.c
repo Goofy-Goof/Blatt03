@@ -17,6 +17,6 @@ int main(int argc, char** argv)
     test_LCFS_PR();
     test_SRTN();
     test_RR(2);
-    
+    test_MLF(2, 3);
 	return 0;
 }

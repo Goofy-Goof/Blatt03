@@ -35,6 +35,7 @@ void free_SRTN()
     if (queue_size(all_tasks) != 0) {
         queue_free(all_tasks);
     }
+    switch_task(NULL);
     
 }
 

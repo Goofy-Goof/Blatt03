@@ -54,9 +54,11 @@ def_task *tick_RR()
     }else{
         time_on_running_task++;
         if (running_task->length == time_on_running_task) {
+            //task finished
             finish_task_RR();
             switch_task(NULL);
             time_on_running_task = 0;
+            //pull next avaible task
             if (queue_size(all_tasks) == 0 ){
                 return NULL;
             } else {
@@ -71,6 +73,7 @@ def_task *tick_RR()
                 if (queue_size(all_tasks) == 0 ){
                     return running_task;
                 } else {
+                    //pull next task, move old one to queue end
                     def_task* old_task = switch_task(queue_poll(all_tasks));
                     queue_offer(all_tasks, old_task);
                     return running_task;

@@ -17,21 +17,19 @@ void print_job(){
     }
 }
 void run_SJN(int job[], int time[], int apears[], int num, int duration){
-    if ( sizeof(job) != sizeof(time) || sizeof(time) != sizeof(apears)) {
-        perror("Invalid input\n");
-        exit(1);
-    }
     if (init_SJN() == 0)
     {
         printf("SJN\n");
         for(int i = 0; i != num; i++){
-            printf("Task %d dauert %d und startet um %d\n", job[i], time[i], apears[i]);
+            printf("Task %d startet um %d und dauert %d\n", job[i], apears[i], time[i]);
         }
         printf("\n");
         for (int i = 0, job_arrived = 0; i != duration; i++) {
             if (apears[job_arrived] == i) {
                 arrive_SJN(job[job_arrived], time[job_arrived]);
                 job_arrived++;
+                tick_SJN();
+                print_job();
             }else{
                 tick_SJN();
                 print_job();
@@ -45,21 +43,19 @@ void run_SJN(int job[], int time[], int apears[], int num, int duration){
 }
     
     void run_LCFS_PR(int job[], int time[], int apears[], int num, int duration){
-        if ( sizeof(job) != sizeof(time) || sizeof(time) != sizeof(apears)) {
-            perror("Invalid input\n");
-            exit(1);
-        }
         if (init_LCFS_PR() == 0)
         {
             printf("LCFS_PR\n");
             for(int i = 0; i != num; i++){
-                printf("Task %d dauert %d und startet um %d\n", job[i], time[i], apears[i]);
+                printf("Task %d startet um %d und dauert %d\n", job[i], apears[i], time[i]);
             }
             printf("\n");
             for (int i = 0, job_arrived = 0; i != duration; i++) {
                 if (apears[job_arrived] == i) {
                     arrive_LCFS_PR(job[job_arrived], time[job_arrived]);
                     job_arrived++;
+                    tick_LCFS_PR();
+                    print_job();
                 }else{
                     tick_LCFS_PR();
                     print_job();
@@ -73,21 +69,19 @@ void run_SJN(int job[], int time[], int apears[], int num, int duration){
         
     }
 void run_SRTN(int job[], int time[], int apears[], int num, int duration){
-    if ( sizeof(job) != sizeof(time) || sizeof(time) != sizeof(apears)) {
-        perror("Invalid input\n");
-        exit(1);
-    }
     if (init_SRTN() == 0)
     {
         printf("SRTN\n");
         for(int i = 0; i != num; i++){
-            printf("Task %d dauert %d und startet um %d\n", job[i], time[i], apears[i]);
+            printf("Task %d startet um %d und dauert %d\n", job[i], apears[i], time[i]);
         }
         printf("\n");
         for (int i = 0, job_arrived = 0; i != duration; i++) {
             if (apears[job_arrived] == i) {
                 arrive_SRTN(job[job_arrived], time[job_arrived]);
                 job_arrived++;
+                tick_SRTN();
+                print_job();
             }else{
                 tick_SRTN();
                 print_job();
@@ -101,21 +95,19 @@ void run_SRTN(int job[], int time[], int apears[], int num, int duration){
     
 }
 void run_RR(int time_step, int job[], int time[], int apears[], int num, int duration){
-    if ( sizeof(job) != sizeof(time) || sizeof(time) != sizeof(apears)) {
-        perror("Invalid input\n");
-        exit(1);
-    }
     if (init_RR(time_step) == 0)
     {
         printf("RR\n");
         for(int i = 0; i != num; i++){
-            printf("Task %d dauert %d und startet um %d\n", job[i], time[i], apears[i]);
+            printf("Task %d startet um %d und dauert %d\n", job[i], apears[i], time[i]);
         }
         printf("\n");
         for (int i = 0, job_arrived = 0; i != duration; i++) {
             if (apears[job_arrived] == i) {
                 arrive_RR(job[job_arrived], time[job_arrived]);
                 job_arrived++;
+                tick_RR();
+                print_job();
             }else{
                 tick_RR();
                 print_job();
@@ -129,21 +121,19 @@ void run_RR(int time_step, int job[], int time[], int apears[], int num, int dur
     
 }
     void run_MLF(int time_step, int num_queues, int job[], int time[], int apears[], int num, int duration){
-        if ( sizeof(job) != sizeof(time) || sizeof(time) != sizeof(apears)) {
-            perror("Invalid input\n");
-            exit(1);
-        }
         if (init_MLF(time_step, num_queues) == 0)
         {
             printf("MLF\n");
             for(int i = 0; i != num; i++){
-                printf("Task %d dauert %d und startet um %d\n", job[i], time[i], apears[i]);
+                printf("Task %d startet um %d und dauert %d\n", job[i], apears[i], time[i]);
             }
             printf("\n");
             for (int i = 0, job_arrived = 0; i != duration; i++) {
                 if (apears[job_arrived] == i) {
                     arrive_MLF(job[job_arrived], time[job_arrived]);
                     job_arrived++;
+                    tick_MLF();
+                    print_job();
                 }else{
                     tick_MLF();
                     print_job();

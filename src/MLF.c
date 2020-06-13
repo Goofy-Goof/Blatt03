@@ -144,7 +144,7 @@ def_task *tick_MLF()
                         return running_task;
                     }
                 }else{
-                    if (new_task_arr) {
+                    if (new_task_arr && current_queue != 0) {
                         //hier muss Verdrähung impelementiert werden
                         interupts[current_queue] += time_on_running_task;
                         def_task* old = switch_task(queue_poll(all_tasks[0]));

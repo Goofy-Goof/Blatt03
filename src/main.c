@@ -33,8 +33,8 @@ int main(int argc, char** argv)
 #endif
     
     int job[] = {1, 2, 3, 4, 5};
-    int time[] = {5, 2, 7, 1, 2};
-    int apears[] = {0, 2, 5, 7, 10};
+    int time[] = {5, 3, 3, 4, 2};
+    int apears[] = {1, 3, 6, 10, 11};
     run_SJN(job, time, apears, sizeof(job)/sizeof(int), 20);
     printf("\n\n\n\n\n");
     run_LCFS_PR(job, time, apears, sizeof(job)/sizeof(int), 20);
